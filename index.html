@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>スライドショー</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      margin: 2em;
+    }
+    .slideshow-container {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+    }
+    .slide {
+      display: none;
+      position: relative;
+    }
+    .slide img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .caption {
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      font-size: 1.4em;
+      padding: 0.5em 0;
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>令和7年度 運動会スライドショー</h1>
 
+  <div class="slideshow-container">
+    <div class="slide">
+      <img src="images/slide1.jpg" alt="入場行進">
+      <div class="caption">入場行進</div>
+    </div>
+    <div class="slide">
+      <img src="images/slide2.jpg" alt="開会式">
+      <div class="caption">開会式</div>
+    </div>
+    <div class="slide">
+      <img src="images/slide3.jpg" alt="コンサドールズさんと札幌龍谷学園高校ボランティア部の皆さん">
+      <div class="caption">コンサドールズさんと札幌龍谷学園高校ボランティア部の皆さん</div>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3500);
+    }
+
+    showSlides();
+  </script>
+</body>
+</html>
